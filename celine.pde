@@ -17,6 +17,7 @@ void setup() {
   background(255);
   //println(b.width+" "+ b.height);
   // ================================= generates rectangles
+  //first row
   stroke(255);
   fill(127);
   int x;
@@ -31,11 +32,11 @@ void setup() {
   }
   fill(0);
   textSize(30);
-  x = y = 54;
   for (int i = 0; i < 6; i++) {
     println(words[i]);
     makeText(y, i, 930);
   }
+  //second row
   fill(100);
   x = y = 82;
   for (int i = 0; i < 5; i++) {
@@ -47,6 +48,12 @@ void setup() {
   for (int i = 0; i < 5; i++) {
     println(words2[i]);
     makeText2(y, i, 1100);
+  }
+  //reorders
+  x = y = 54;
+  for (int i = 0; i < 6; i++) {
+    clickable[i] = x;
+    x += 150 + y;
   }
 
   /*
@@ -151,34 +158,16 @@ boolean overButton(int x, int y) {
     return false;
   }
 }
-/*
-void filter(float r, float g, float b) {
- for (int x = 0; x < c.width; x++) {
- for (int y = 0; y < c.height; y++) {
- float red = red(c.get(x, y)); 
- float grn = green(c.get(x, y)); 
- float blu = blue(c.get(x, y));
- b.set(x, y, color((r+g+b)/3));
- }
- }
- }
- */
+
 
 void draw() {
+  imageMode(CORNER);
   image(b, 0, 0);
-  imageMode(CENTER);
+  //imageMode(CENTER);
   for (Sticker s : drawn) {
     image(s.img, s.xcor, s.ycor);
   }
-  /*
-  if (mouseClicked) {
-   if (stickerMode && 
-   mouseX >= 0 && mouseX < b.width && 
-   mouseY >= 0 && mouseY < b.height) {
-   drawn = (Sticker[]) append(drawn, new Sticker(sticker, mouseX, mouseY));
-   }
-   }
-   */
+  imageMode(CORNER);
 }
 
 class Sticker {
