@@ -141,7 +141,10 @@ void mouseClicked() {
     }
   }
   // ============================================= EXPORT/SAVE
-  if (overButton(clickable[5], 880)) {
+    if (overButton(clickable[5], 880)) {
+    PImage img  = get(0, 0, 1278, 850);
+    img.save("yourPicture.png");
+    println("Saved! Check in data folder for 'yourPicture.png'");
   }
   //leave random text generator for bottom row (aka sticker row?)
   if (stickerMode && 
