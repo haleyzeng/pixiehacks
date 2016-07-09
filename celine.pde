@@ -11,8 +11,8 @@ PImage sticker;
 void setup() {
   size(1278, 1200);
   imageMode(CORNER);
-  b = loadImage("dog.jpg");
-  c = loadImage("dog.jpg");
+  b = loadImage("hair.jpg");
+  c = loadImage("hair.jpg");
   b.resize(1278, 850);
   c.resize(1278, 850);
   background(255);
@@ -47,6 +47,7 @@ void setup() {
   fill(0);
   for (int i = 0; i < 5; i++) {
     stickerImages[i] = loadImage(words2[i] + ".png");
+    stickerImages[i].resize(100, 100);
     makeText2(y, i, 1100);
   }
   //reorders
@@ -168,7 +169,35 @@ void draw() {
     image(s.img, s.xcor, s.ycor);
   }
   imageMode(CORNER);
+  if (stickerMode){
+    imageMode(CENTER);
+    image(sticker, mouseX, mouseY);
+  }
 }
+
+void keyPressed(){
+  if (key == 'h'){
+   stickerMode = !stickerMode;
+   sticker = stickerImages[0];
+  }
+  else if (key == 's'){
+   stickerMode = !stickerMode;
+   sticker = stickerImages[1];
+  }
+  else if (key == 't'){
+   stickerMode = !stickerMode;
+   sticker = stickerImages[2];
+  }
+  else if (key == 'p'){
+   stickerMode = !stickerMode;
+   sticker = stickerImages[3];
+  }
+   else if (key == 'm'){
+   stickerMode = !stickerMode;
+   sticker = stickerImages[4];
+  }
+}
+
 
 class Sticker {
   PImage img;
@@ -180,4 +209,4 @@ class Sticker {
     xcor = x;
     ycor = y;
   }
-}
+}
