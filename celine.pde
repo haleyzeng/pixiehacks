@@ -1,7 +1,7 @@
 PImage b;
 PImage c; //copy; aka Copied image for reference
 int [] clickable = new int [15];
-String [] words = {"original","gray","orange","pink","blue","save"};
+String [] words = {"original", "gray", "orange", "pink", "blue", "save"};
 
 void setup() {
   size(1278, 1200);
@@ -27,7 +27,7 @@ void setup() {
   // ================================ generates words
   fill(0);
   textSize(30);
-  for (int i = 0; i < 6; i++){
+  for (int i = 0; i < 6; i++) {
     println(words[i]);
     makeText(y, i);
   }
@@ -37,7 +37,7 @@ void makeButton(int xcoord) {
   rect (xcoord, 880, 150, 100, 10);
 }
 
-void makeText(int y, int i){
+void makeText(int y, int i) {
   text(words[i], (clickable[i] + y/2), 930);
 }
 
@@ -66,12 +66,39 @@ void mouseClicked() {
   }
   // ============================================= ORANGE
   if (overButton(clickable[2], 880)) {
+    for (int x = 0; x < c.width; x++) {
+      for (int y = 0; y < c.height; y++) {
+        float red = red(c.get(x, y)); 
+        float grn = green(c.get(x, y)); 
+        float blu = blue(c.get(x, y));
+        int g = 5;
+        b.set(x, y, color(red + 10 + y / g, grn + 50 - y / g, blu - 50 - y / g));
+      }
+    }
   }
   // ============================================= PINK
   if (overButton(clickable[3], 880)) {
+    for (int x = 0; x < c.width; x++) {
+      for (int y = 0; y < c.height; y++) {
+        float red = red(c.get(x, y)); 
+        float grn = green(c.get(x, y)); 
+        float blu = blue(c.get(x, y));
+        int g = 5;
+        b.set(x, y, color(red + 40 + y / g, grn + 10 - y / g, blu + 20 + y / g));
+      }
+    }
   }
   // ============================================= BLUE
   if (overButton(clickable[4], 880)) {
+    for (int x = 0; x < c.width; x++) {
+      for (int y = 0; y < c.height; y++) {
+        float red = red(c.get(x, y)); 
+        float grn = green(c.get(x, y)); 
+        float blu = blue(c.get(x, y));
+        int g = 5;
+        b.set(x, y, color(red - 100 + y / g, grn + 20 - y/ g, blu + 50 + y / g));
+      }
+    }
   }
   // ============================================= EXPORT/SAVE
   if (overButton(clickable[5], 880)) {
@@ -105,80 +132,49 @@ void draw() {
   //while you hold the mouse down, it will affect the area near the mouse
   /*
   if (mousePressed) {
-    processCircle(b, 30);
-  }
-  */
+   processCircle(b, 30);
+   }
+   */
 }
 
 /*
 void processCircle(PImage p, int r) {
-  color black = color(0);
-  for (int x = mouseX-r; x < mouseX+r; x++) {
-    for (int y = mouseY-r; y < mouseY+r; y  ++) {
-      if (dist(x, y, mouseX, mouseY)<=r) {
-        //students can just set hte pixel to black for now!
-        processPixel(p, x, y);
-      }
-    }
-  }
-}
+ color black = color(0);
+ for (int x = mouseX-r; x < mouseX+r; x++) {
+ for (int y = mouseY-r; y < mouseY+r; y  ++) {
+ if (dist(x, y, mouseX, mouseY)<=r) {
+ //students can just set hte pixel to black for now!
+ processPixel(p, x, y);
+ }
+ }
+ }
+ }
+ 
+ void processRect(PImage p, int r) {
+ color black = color(0);
+ for (int x = mouseX-r; x < mouseX+r; x++) {
+ for (int y = mouseY-r; y < mouseY+r; y  ++) {
+ //students can just set hte pixel to black for now!
+ processPixel(p, x, y);
+ }
+ }
+ }
+ 
+ //since we are doing this on mousedown this should 
+ //yield the same result when run on the same pixel 
+ //multiple times
+ void processPixel( PImage p, int x, int y) {
+ 
+ 
+ //get the 3 colors
+ float red = red(p.get(x, y)); 
+ float grn = green(p.get(x, y)); 
+ float blu = blue(p.get(x, y));
+ //set a new color somehow 
+ //gray:
+ //p.set(x, y, color((red+grn+blu)/3));
+ //remove all blue
+ p.set(x, y, color(red, 255, 0));
+ */
 
-void processRect(PImage p, int r) {
-  color black = color(0);
-  for (int x = mouseX-r; x < mouseX+r; x++) {
-    for (int y = mouseY-r; y < mouseY+r; y  ++) {
-      //students can just set hte pixel to black for now!
-      processPixel(p, x, y);
-    }
-  }
-}
-
-//since we are doing this on mousedown this should 
-//yield the same result when run on the same pixel 
-//multiple times
-void processPixel( PImage p, int x, int y) {
-
-
-  //get the 3 colors
-  float red = red(p.get(x, y)); 
-  float grn = green(p.get(x, y)); 
-  float blu = blue(p.get(x, y));
-  //set a new color somehow 
-  //gray:
-  //p.set(x, y, color((red+grn+blu)/3));
-  //remove all blue
-  p.set(x, y, color(red, 255, 0));
-  */
-  
 //END OF CODE!!!
-
-
-
-  //orange ombre
-      //b.set(x, y, color(red + 10 + y / g, grn + 50 - y / g, blu - 50 - y / g));
-      //blue to pink
-      //b.set(x, y, color(red - 100 + y / g, grn + 20 - y/ g, blu + 50 + y / g));
-      //purple pink
-      //b.set(x, y, color(red + 40 + y / g, grn + 10 - y/ g, blu + 20 + y / g));
-
-
-
-void mouseClicked() {
-  //affect entire screen
-  for (int x = 0; x < b.width; x++) {
-    for (int y = 0; y < b.height; y++) {
-      float red = red(b.get(x, y));
-      float grn = green(b.get(x, y));
-      float blu = blue(b.get(x, y));
-      int g = 5;
-      //orange ombre
-     b.set(x, y, color(red + 10 + y / g, grn + 50 - y / g, blu - 50 - y / g));
-      //blue to pink
-      //b.set(x, y, color(red - 100 + y / g, grn + 20 - y/ g, blu + 50 + y / g));
-      //purple pink
-      //b.set(x, y, color(red + 40 + y / g, grn + 10 - y/ g, blu + 20 + y / g));
-      
-      //b.set(x, y, color(255-red, 255-grn, 255-blu));
-    }
-  }
-}
