@@ -2,6 +2,9 @@ PImage b;
 PImage c; //copy; aka Copied image for reference
 int [] clickable = new int [15];
 String [] words = {"original", "gray", "orange", "pink", "blue", "save"};
+String [] words2 = {"heart", "spaceship", "tumblr", "pixie", "meme"};
+Sticker[] drawn = { };
+boolean stickerMode = false;
 
 void setup() {
   size(1278, 1200);
@@ -21,24 +24,51 @@ void setup() {
   noStroke();
   for (int i = 0; i < 6; i++) {
     clickable[i] = x;
-    makeButton(x);
+    makeButton(x, 880, 150, 100);
     x += 150 + y;
   }
-  // ================================ generates words
   fill(0);
   textSize(30);
+  x = y = 54;
   for (int i = 0; i < 6; i++) {
     println(words[i]);
-    makeText(y, i);
+    makeText(y, i, 930);
   }
+  fill(100);
+  x = y = 82;
+  for (int i = 0; i < 5; i++) {
+    clickable[i] = x;
+    makeButton(x, 1010, 175, 150);
+    x += 150 + y;
+  }
+  fill(0);
+  for (int i = 0; i < 5; i++) {
+    println(words2[i]);
+    makeText2(y, i, 1100);
+  }
+
+  /*
+  // ================================ generates words
+   fill(0);
+   textSize(30);
+   x = y = 54;
+   for (int i = 0; i < 6; i++) {
+   println(words[i]);
+   makeText(y, i);
+   }
+   */
 }
 
-void makeButton(int xcoord) {
-  rect (xcoord, 880, 150, 100, 10);
+void makeButton(int xcoord, int ycoord, int l, int w) {
+  rect (xcoord, ycoord, l, w, 10);
 }
 
-void makeText(int y, int i) {
-  text(words[i], (clickable[i] + y/2), 930);
+void makeText(int y, int i, int down) {
+  text(words[i], (clickable[i] + y/2), down);
+}
+
+void makeText2(int y, int i, int down) {
+  text(words2[i], (clickable[i] + y/2 - 15), down);
 }
 
 void mouseClicked() {
@@ -104,6 +134,11 @@ void mouseClicked() {
   if (overButton(clickable[5], 880)) {
   }
   //leave random text generator for bottom row (aka sticker row?)
+  if (stickerMode && 
+    mouseX >= 0 && mouseX < b.width && 
+    mouseY >= 0 && mouseY < b.height) {
+    drawn = (Sticker[]) append(drawn, new Sticker(sticker, mouseX, mouseY));
+  }
 } //end
 
 boolean overButton(int x, int y) {
@@ -129,92 +164,29 @@ void filter(float r, float g, float b) {
 
 void draw() {
   image(b, 0, 0);
-  //while you hold the mouse down, it will affect the area near the mouse
+  imageMode(CENTER);
+  for (Sticker s : drawn) {
+    image(s.img, s.xcor, s.ycor);
+  }
   /*
-  if (mousePressed) {
-   processCircle(b, 30);
+  if (mouseClicked) {
+   if (stickerMode && 
+   mouseX >= 0 && mouseX < b.width && 
+   mouseY >= 0 && mouseY < b.height) {
+   drawn = (Sticker[]) append(drawn, new Sticker(sticker, mouseX, mouseY));
+   }
    }
    */
 }
 
-/*
-void processCircle(PImage p, int r) {
- color black = color(0);
- for (int x = mouseX-r; x < mouseX+r; x++) {
- for (int y = mouseY-r; y < mouseY+r; y  ++) {
- if (dist(x, y, mouseX, mouseY)<=r) {
- //students can just set hte pixel to black for now!
- processPixel(p, x, y);
- }
- }
- }
- }
- 
- void processRect(PImage p, int r) {
- color black = color(0);
- for (int x = mouseX-r; x < mouseX+r; x++) {
- for (int y = mouseY-r; y < mouseY+r; y  ++) {
- //students can just set hte pixel to black for now!
- processPixel(p, x, y);
- }
- }
- }
- 
- //since we are doing this on mousedown this should 
- //yield the same result when run on the same pixel 
- //multiple times
- void processPixel( PImage p, int x, int y) {
- 
- 
- //get the 3 colors
- float red = red(p.get(x, y)); 
- float grn = green(p.get(x, y)); 
- float blu = blue(p.get(x, y));
- //set a new color somehow 
- //gray:
- //p.set(x, y, color((red+grn+blu)/3));
- //remove all blue
- p.set(x, y, color(red, 255, 0));
- */
-
-//END OF CODE!!!
-
-
-//STICKER STUFF
-
-
-//class (just put at bottom of file)
 class Sticker {
   PImage img;
   int xcor;
   int ycor;
-  
-  Sticker(PImage i, int x, int y){
+
+  Sticker(PImage i, int x, int y) {
     img = i;
     xcor = x;
     ycor = y;
   }
-  
 }
-
-/*
-//global variable put at top
-Sticker[] drawn = { };
-
-//put this in the draw() after image(b, 0, 0)
-  imageMode(CENTER);
-  for (Sticker s : drawn){
-    image(s.img, s.xcor, s.ycor);
-  }
-  
-  //put this in draw at the end of it
-
-  
-  if (mouseClicked) {
-  if { stickerMode && 
-    mouseX >= 0 && mouseX < b.width && 
-    mouseY >= 0 && mouseY < b.height){
-   drawn = (Sticker[]) append(drawn, new Sticker(sticker, mouseX, mouseY));
-}
-  }
-*/
