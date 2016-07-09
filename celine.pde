@@ -160,3 +160,25 @@ void processPixel( PImage p, int x, int y) {
       //b.set(x, y, color(red - 100 + y / g, grn + 20 - y/ g, blu + 50 + y / g));
       //purple pink
       //b.set(x, y, color(red + 40 + y / g, grn + 10 - y/ g, blu + 20 + y / g));
+
+
+
+void mouseClicked() {
+  //affect entire screen
+  for (int x = 0; x < b.width; x++) {
+    for (int y = 0; y < b.height; y++) {
+      float red = red(b.get(x, y));
+      float grn = green(b.get(x, y));
+      float blu = blue(b.get(x, y));
+      int g = 5;
+      //orange ombre
+     b.set(x, y, color(red + 10 + y / g, grn + 50 - y / g, blu - 50 - y / g));
+      //blue to pink
+      //b.set(x, y, color(red - 100 + y / g, grn + 20 - y/ g, blu + 50 + y / g));
+      //purple pink
+      //b.set(x, y, color(red + 40 + y / g, grn + 10 - y/ g, blu + 20 + y / g));
+      
+      //b.set(x, y, color(255-red, 255-grn, 255-blu));
+    }
+  }
+}
