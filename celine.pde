@@ -178,3 +178,23 @@ void processCircle(PImage p, int r) {
  */
 
 //END OF CODE!!!
+
+
+//STICKER STUFF
+
+
+//class (just put at bottom of file)
+class Sticker {
+  PImage img;
+  int xcor;
+  int ycor;
+  
+  Sticker(PImage i, int x, int y){
+    img = i;
+    xcor = x;
+    ycor = y;
+  }
+  
+}
+
+
