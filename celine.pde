@@ -148,7 +148,7 @@ void mouseClicked() {
   }
   //leave random text generator for bottom row (aka sticker row?)
   if (stickerMode && 
-    mouseX >= 0 && mouseX < b.width && 
+    >= 0 && mouseX < b.width && 
     mouseY >= 0 && mouseY < b.height) {
     drawn = (Sticker[]) append(drawn, new Sticker(sticker, mouseX, mouseY));
   }
@@ -172,7 +172,10 @@ void draw() {
     image(s.img, s.xcor, s.ycor);
   }
   imageMode(CORNER);
-  if (stickerMode){
+  if (stickerMode &&
+    mouseX  >= 0 && mouseX < b.width && 
+    mouseY >= 0 && mouseY < b.height) 
+  {
     imageMode(CENTER);
     image(sticker, mouseX, mouseY);
   }
