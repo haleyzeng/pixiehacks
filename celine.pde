@@ -3,6 +3,7 @@ PImage c; //copy; aka Copied image for reference
 int [] clickable = new int [15];
 String [] words = {"original", "gray", "orange", "pink", "blue", "save"};
 String [] words2 = {"heart", "spaceship", "tumblr", "pixie", "meme"};
+PImage[] stickerImages = new PImage[words2.length];
 Sticker[] drawn = { };
 boolean stickerMode = false;
 PImage sticker;
@@ -45,7 +46,7 @@ void setup() {
   }
   fill(0);
   for (int i = 0; i < 5; i++) {
-    println(words2[i]);
+    stickerImages[i] = loadImage(words2[i] + ".png");
     makeText2(y, i, 1100);
   }
   //reorders
@@ -179,4 +180,4 @@ class Sticker {
     xcor = x;
     ycor = y;
   }
-}
+}
