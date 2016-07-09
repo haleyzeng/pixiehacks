@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Filtrify by Team Meme</title>
+		<script type="text/javascript" src="processing.js"></script>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.poptrox.min.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	</head>
+	<body>
+			<script>
+			   function previewFile(){
+			       var preview = document.querySelector('img'); //selects the query named img
+			       var file    = document.querySelector('input[type=file]').files[0]; //sames as here
+			       var reader  = new FileReader();
+
+			       reader.onloadend = function () {
+			           preview.src = reader.result;
+			       }
+
+			       if (file) {
+			       	   reader.readAsDataURL(file);
+			           var url = reader.readAsDataURL(file); //reads the data as a URL
+
+			       } else {
+			           preview.src = "";
+			       }
+  			}
+
+  			previewFile();  //calls the function named previewFile()
+  			</script>
+
+
+		<!-- Header -->
+			<header id="header">
+
+				<!-- Logo -->
+					<h1 id="logo"><a href="#">Filtrify</a></h1>
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro">Intro</a></li>
+							<li><a href="#one">Description</a></li>
+							<li><a href="#two">Our Team</a></li>
+							<li><a href="#work">Filtr Tool</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</nav>
+
+			</header>
+			
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
+				<div class="content container small">
+					<header>
+						<h2>Hey.</h2>
+					</header>
+					<p>Welcome to <strong>Filtrify</strong>, your path to Tumblr genius. </p>
+					<footer>
+						<a href="#one" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
+		
+		<!-- One -->
+			<section id="one" class="main style2 right dark fullscreen">
+				<div class="content box style2">
+					<header>
+						<h2>What is "Filtrify"?</h2>
+					</header>
+					<p>
+						Ever so jealous of those ombre purple-pink picturesque tumblr posts? We sure were. That's why we created Filtrify! No photoshop experience? Psh...no more worries! Thanks to our jealousy, now you can become Tumblr famous too!* You're welcome. 
+
+						Use our tool to add beautiful filters to your picture and post to Tumblr from our site directly.
+
+						<br/>
+
+						<font size="1">*Tumblr fame not guaranteed.</font>
+
+					</p>
+				</div>
+				<a href="#two" class="button style2 down anchored">Next</a>
+			</section>
+		
+		<!-- Two -->
+			<section id="two" class="main style2 left dark fullscreen">
+				<div class="content box style2">
+					<header>
+						<h2>Meet Team Meme!</h2>
+					</header>
+					<p>
+						Hello Tumblr-fame seekers! We are Team Meme. Our team is composed of 4 hackers: <strong>Celine (Dion), Haley, Laura, and Amy</strong>. Celine and Haley are our back-end programmers. But more importantly, the stylish front end team consists of Laura and Amy. 
+						<!--picture here-->
+					</p>
+				</div>
+				<a href="#work" class="button style2 down anchored">Next</a>
+			</section>
+			
+		<!-- Work -->
+			<section id="work" class="main style3 primary">
+				<div class="content container">
+					<header>
+						<h2>Filtr Machine 101</h2>
+						<p>Presenting to you our wonderful filtr tool! Choose from grayscale, orange, pink, and blue! Add a caption too! Ship off to Tumblr in a snap. Download from the link below!</p>
+					</header>
+					
+					 <a href="https://github.com/hhzrabbit/pixiehacks">Download</a>
+					<!--<form name="url">
+					<b>Copy and paste url:</form> </b>
+					<textarea name="text"></textarea><br /> 
+					<button onclick="WriteToFile()">Submit</Button>  
+					</form> -->
+
+					<!--<form action="toform.py">
+					  <strong>Copy and Paste URL:</strong><br>
+					  <input type="text" name="url">
+					  <input type="submit" value="Submit">
+					</form>-->
+					<br/>
+					<div>
+					<!--form-->
+					</div>
+				</div>
+			</section>
+			
+		<!-- Contact -->
+			<section id="contact" class="main style3 secondary">
+				<div class="content container">
+					<header>
+						<h2>Say Hello.</h2>
+						<p>Contact us through our emails.</p>
+					</header>
+					<div class="box container small">
+						<p>
+						<strong>Team email</strong>: massivewonderlandnerd@gmail.com <br/>
+						<strong>Haley</strong>: hzeng@stuy.edu <br/>
+						<strong>Amy</strong>: jxu9@stuy.edu <br/>
+						<strong>Laura</strong>: lgoon@stuy.edu <br/>
+						<strong>Celine</strong>: cyan2@stuy.edu
+						</p>
+					</div>
+				</div>
+			</section>
+			
+		<!-- Footer -->
+			<footer id="footer">
+			
+				<!--
+				     Social Icons
+				     
+				     Use anything from here: http://fortawesome.github.io/Font-Awesome/cheatsheet/)
+				-->
+					<ul class="actions">
+						<li><a href="http://massivewonderlandnerd.tumblr.com" class="fa solo fa-instagram"><span>Instagram</span></a></li>
+					</ul>
+
+				<!-- Menu -->
+					<ul class="menu">
+						<li>&copy; Filtrify</li>
+						<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+					</ul>
+			
+			</footer>
+
+	</body>
+</html>
