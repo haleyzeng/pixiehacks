@@ -151,3 +151,12 @@ void processPixel( PImage p, int x, int y) {
   */
   
 //END OF CODE!!!
+
+
+
+  //orange ombre
+      //b.set(x, y, color(red + 10 + y / g, grn + 50 - y / g, blu - 50 - y / g));
+      //blue to pink
+      //b.set(x, y, color(red - 100 + y / g, grn + 20 - y/ g, blu + 50 + y / g));
+      //purple pink
+      //b.set(x, y, color(red + 40 + y / g, grn + 10 - y/ g, blu + 20 + y / g));
