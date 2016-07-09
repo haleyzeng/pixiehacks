@@ -33,7 +33,6 @@ void setup() {
   fill(0);
   textSize(30);
   for (int i = 0; i < 6; i++) {
-    println(words[i]);
     makeText(y, i, 930);
   }
   //second row
