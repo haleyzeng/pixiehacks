@@ -208,8 +208,12 @@ Sticker[] drawn = { };
   }
   
   //put this in draw at the end of it
+
   
-    if (mouseClicked){
+  if (mouseClicked && stickerMode && 
+    mouseX >= 0 && mouseX < b.width && 
+    mouseY >= 0 && mouseY < b.height){
    drawn = (Sticker[]) append(drawn, new Sticker(sticker, mouseX, mouseY));
-  }
+}
+  
 */
