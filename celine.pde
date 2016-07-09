@@ -5,9 +5,11 @@ String [] words = {"original", "gray", "orange", "pink", "blue", "save"};
 String [] words2 = {"heart", "spaceship", "tumblr", "pixie", "meme"};
 Sticker[] drawn = { };
 boolean stickerMode = false;
+PImage sticker;
 
 void setup() {
   size(1278, 1200);
+  imageMode(CORNER);
   b = loadImage("dog.jpg");
   c = loadImage("dog.jpg");
   b.resize(1278, 850);
