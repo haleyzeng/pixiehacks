@@ -197,4 +197,19 @@ class Sticker {
   
 }
 
+/*
+//global variable put at top
+Sticker[] drawn = { };
 
+//put this in the draw() after image(b, 0, 0)
+  imageMode(CENTER);
+  for (Sticker s : drawn){
+    image(s.img, s.xcor, s.ycor);
+  }
+  
+  //put this in draw at the end of it
+  
+    if (mouseClicked){
+   drawn = (Sticker[]) append(drawn, new Sticker(sticker, mouseX, mouseY));
+  }
+*/
